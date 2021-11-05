@@ -10,7 +10,7 @@ function onFormSubmit(event) {
 
   console.dir(event.currentTarget.elements.email);
   if (!mail || !password) {
-    alert("All fields must be filled!");
+    return alert("All fields must be filled!");
   }
 
   const formData = {
