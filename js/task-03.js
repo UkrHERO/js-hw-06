@@ -13,18 +13,16 @@ const images = [
   },
 ];
 
-const galleryEl = images.map((image, index) => {
-  const itemEl = document.createElement("li");
-  const imgEl = document.createElement("img");
-  imgEl.src = images[index].url;
-  imgEl.alt = images[index].alt;
-  imgEl.width = 400;
-  itemEl.classList.add("item");
-  itemEl.append(imgEl);
-  return itemEl;
-});
+const galleryEl = images
+  .map((image, index) => {
+    return `<li class='item' style='list-style: none;'>
+  <img src='${images[index].url}' alt='${images[index].alt}' width='400' style='border-radius: 20px'>
+    </li>`;
+  })
+  .join("");
 
 console.log(...galleryEl);
 
 const listEl = document.querySelector(".gallery");
-listEl.append(...galleryEl);
+
+listEl.insertAdjacentHTML("beforeend", galleryEl);
