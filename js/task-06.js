@@ -3,12 +3,15 @@ const validLength = inputEl.getAttribute("data-length");
 
 inputEl.addEventListener("blur", lostFosus);
 
+function addRemove(add, remove) {
+  inputEl.classList.add(add);
+  inputEl.classList.remove(remove);
+}
+
 function lostFosus() {
   if (inputEl.value.length < validLength) {
-    inputEl.classList.add("invalid");
-    inputEl.classList.remove("valid");
+    addRemove("invalid", "valid");
   } else {
-    inputEl.classList.add("valid");
-    inputEl.classList.remove("invalid");
+    addRemove("valid", "invalid");
   }
 }
